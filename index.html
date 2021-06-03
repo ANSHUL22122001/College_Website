@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        /* section1 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            min-height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url('https://www.ejusticeindia.com/wp-content/uploads/2020/06/Chandigarh-University-1536x530.jpg');
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        nav{
+            display: flex;
+            padding: 2% 6%;
+            justify-content:space-between;
+            align-items: center;
+        }
+        nav img{
+            width: 150px;
+        }
+        nav .nav-links{
+            flex: 1;
+            text-align: right;
+        }
+        nav .nav-links ul li{
+            list-style: none;
+            display: inline-block;
+            padding: 8px 12px;
+            color: black;
+        }
+        nav .nav-links ul li::after{
+            content:'';
+            width: 0%;
+            height: 2px;
+            background-color: #f44336;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }    
+        nav .nav-links ul li:hover::after{
+            width: 100%;
+        }
+        nav .nav-links ul li a{
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .text-box{
+            width: 90%;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+        }
+        .text-box h1{
+            font-size: 62px;
+        }
+        .text-box p{
+            margin-top: 15px;
+            margin-bottom:35px;
+            font-size: 15px;
+        }
+        .hero-btn{
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            border: 1px solid white;
+            padding: 12px 34px;
+            font-size: 13px;
+            background: transparent;
+            position: relative;
+            cursor: pointer;
+        }
+        .hero-btn:hover{
+            border: 1px solid #f44336;
+            transition: 0.5s;
+            background-color: #f44336;
+        } 
+        nav .fa{
+            display: none;
+        }
+        @media(max-width:700px){
+            .text-box h1{
+                font-size: 20px;
+            }
+            nav .nav-links ul li{
+                display: block;
+            }
+            nav .nav-links{
+                position: absolute;
+                background: #f44336;
+                height: 100vh;
+                width: 200px;
+                top: 0;
+                right: -200px;
+                text-align: left;
+                z-index: 1;
+                transition:1s;
+            }
+            nav .fa{
+                display: block;
+                color: white;
+                margin: 10px;
+                font-size: 22px;
+                cursor: pointer;
+            }
+            .nav-links ul{
+                padding: 30px;
+            }
+        }
+
+
+        /* section2 */
+        .course{
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+            padding-top:100px;
+        }
+        .course h1{
+            font-size: 36px;
+            font-weight: 600;
+        }
+        .course p{
+            color: #777;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 22px;
+            padding: 10px;
+        }
+        .row{
+            margin: 5%;
+            display: flex;
+            justify-content:space-between;
+        }
+        .course .row .course-col{
+            box-sizing: border-box;
+            border-radius: 10px;
+            background: #fff3f3;
+            margin-bottom: 5%;
+            padding: 20px 12px;
+            flex-basis: 31%;
+        }
+        .course .row .course-col h3{
+            text-align: center;
+            font-weight: 600;
+            margin: 10px 0;
+
+        }
+        .course .row .course-col:hover{
+            box-shadow: 0 0 20px 0px rgba(0,0,0,0.2)
+        }
+        @media (max-width: 700px){
+            .row{
+                flex-direction: column;
+            }
+        }
+
+    /* campus */
+
+        .campus{
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .campus-col{
+            flex-basis: 32%;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .campus-col img{
+            width: 100%;
+            display:block;
+            height: 100%;
+        }
+        .campus .layer{
+            background: transparent;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: 0.5s;
+        }
+        .campus .layer:hover{
+            background: rgba(226,0,0,0.7);
+        }
+        .campus .layer h3{
+            width: 100%;
+            font-weight:500;
+            font-size:29px;
+            color: #fff;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            position: absolute;
+            opacity: 0;
+            transition: 0.5s
+        }
+        .campus .layer:hover h3{
+            bottom: 49%;
+            opacity: 1;
+        }
+        
+        /* Facilities */
+        .facilities{
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .facilities .row .facilities-col{
+            flex-basis: 31%;
+            border-radius: 10px;
+            margin-bottom: 5%;
+            text-align: left;
+        }
+        .facilities .row .facilities-col img{
+            width: 100%;
+            height: 60%;
+            border-radius: 10px;
+        }
+        .facilities .row .facilities-col p{
+            padding: 0;
+        }
+        .facilities .row .facilities-col h3{
+            margin-top: 16px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        /* testimonial */
+        .testimonials{
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .testimonials .row .testimonials-col{
+            flex-basis: 44%;
+            border-radius: 10px;
+            margin-bottom: 5%;
+            text-align: left;
+            background: #fff3f3;
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+        }
+        .testimonials .row .testimonials-col img{
+            height:40px;
+            margin-left: 5px;
+            margin-right: 30px;
+            border-radius: 50%;
+        }
+        .testimonials .row .testimonials-col h3{
+            margin-top: 16px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .testimonials .row .testimonials-col p{
+            padding: 0;
+        }
+        .testimonials .row .testimonials-col .st{
+            color: #f44336;
+        }
+        @media(max-width:700px){
+            .testimonials .row .testimonials-col img{
+                margin-left: 0px;
+                margin-right: 15px;
+            }
+        }
+
+        /* call to action */
+        .cta{
+            margin: 100px auto;
+            width: 80%;
+            background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url('https://www.cuchd.in/uis/images/busi-lab-img.jpg');
+            background-position: center;
+            background-size: cover;
+            border-radius:10px;
+            text-align:center;
+            padding: 100px 0;
+        }
+        .cta h1{
+            color: white;
+            margin-bottom: 40px;
+            padding:0;
+        }
+        @media(max-width:700px){
+            .cta h1{
+                font-size: 24px;
+            }
+        }
+
+        /* footer */
+        footer{
+            background-color:#24262b;
+            line-height: 1.5;
+        }
+        footer .container{
+            max-width: 1170px;
+            margin: auto;
+            padding: 50px 0px;
+        }
+        footer .container .rows{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        footer .container .rows .footer-col{
+            width: 25%;
+            padding: 0;
+        }
+        footer .container .rows .footer-col h4{
+            font-size:18px;
+            color: #ffffff;
+            text-transform: 30px;
+            margin-bottom: 30px;
+            font-weight: 500;
+            position: relative;
+        }
+        footer .container .rows .footer-col h4::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background-color:#e91e63;
+            height: 2px;
+            box-sizing: border-box;
+            width: 50px;
+        }
+        footer .container .rows .footer-col ul li:not(:last-child){
+            margin-bottom:10px;
+        }
+        footer .container .rows .footer-col ul li{
+            list-style: none;
+        }
+        footer .container .rows .footer-col ul li a{
+            font-size: 16px;
+            text-transform: capitalize;
+            color: white;
+            text-decoration: none;
+            font-weight:300;
+            color: #bbbbbb;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        footer .container .rows .footer-col ul li a:hover{
+            color: white;
+            padding-left: 8px;
+        }
+        footer .container .rows .footer-col .social-links a{
+            display: inline-block;
+            height: 40px;
+            width:40px;
+            color: white;
+            border: 1px solid white;
+            margin: 0 10px 10px 0 0;
+            text-align: center;
+            line-height:40px;
+            border-radius: 50%;
+            transition: all 0.5s ease;
+        }
+        footer .container .rows .footer-col .social-links a:hover{
+            border: 1px solid #f44336;
+            background-color: #f44336;
+        }
+        @media(max-width:767px){
+            .footer-col{
+                width: 50%;
+                margin-bottom: 30px;
+            }
+        }
+        @media(max-width:767px){
+            .footer-col{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="logo.png" alt=""></a>
+            <div class="nav-links" id="catch-me">
+                <i class="fa fa-times" aria-hidden="true" onclick="hide()"></i>
+                <ul>
+                    <li><a href="">HOME</a></li>
+                    <li><a href="">ABOUT</a></li>
+                    <li><a href="">COURSE</a></li>
+                    <li><a href="">BLOG</a></li>
+                    <li><a href="">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" aria-hidden="true" onclick="show()"></i>
+        </nav>
+        <div class="text-box">
+            <h1>University with a Global Outlook</h1>
+            <p>Chandigarh University is a full-fledged university established by the Punjab State Legislature and is recognized by University Grants Commission<br>  under Section 2(f) with the right to confer degrees as per Section 22(1) of the UGC Act, 1956.</p>
+            <a href="" class="hero-btn">Visit Us To know More</a>
+        </div>
+    </section>
+    
+    <section class="course">
+        <h1>Courses We Offer</h1>
+        <p>Lorem ipsum dolor sit amet consectetur,Lorem, ipsum dolor sit amet consectetur</p>
+        <div class="row">
+            <div class="course-col">
+                <h3>Intermediate</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus suscipit a quis molestiae ratione necessitatibus, reiciendis officiis et dolore tempora dolor officia consectetur similique dolorem. Illo porro est iusto officia.</p>
+            </div>
+            <div class="course-col">
+                <h3>Degree</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus suscipit a quis molestiae ratione necessitatibus, reiciendis officiis et dolore tempora dolor officia consectetur similique dolorem. Illo porro est iusto officia.</p>
+            </div>
+            <div class="course-col">
+                <h3>Post Graduation</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus suscipit a quis molestiae ratione necessitatibus, reiciendis officiis et dolore tempora dolor officia consectetur similique dolorem. Illo porro est iusto officia.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="course-col">
+                <h3>Intermediate</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus suscipit a quis molestiae ratione necessitatibus, reiciendis officiis et dolore tempora dolor officia consectetur similique dolorem. Illo porro est iusto officia.</p>
+            </div>
+            <div class="course-col">
+                <h3>Degree</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus suscipit a quis molestiae ratione necessitatibus, reiciendis officiis et dolore tempora dolor officia consectetur similique dolorem. Illo porro est iusto officia.</p>
+            </div>
+            <div class="course-col">
+                <h3>Post Graduation</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus suscipit a quis molestiae ratione necessitatibus, reiciendis officiis et dolore tempora dolor officia consectetur similique dolorem. Illo porro est iusto officia.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="campus">
+        <h1>Other Branches</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus fugiat iusto, culpa soluta voluptate ab earum nihil, quod, magnam recusandae animi asperiores rerum perferendis explicabo! Omnis deleniti aut praesentium laudantium.</p>
+        <div class="row">
+            <div class="campus-col">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/WCI2016_by_Rehman_-_CGC_Landran_%281%29.jpg/450px-WCI2016_by_Rehman_-_CGC_Landran_%281%29.jpg" alt="">
+                <div class="layer">
+                    <h3>CGC Landran</h3>
+                </div>
+            </div>
+            <div class="campus-col">
+                <img src="https://img.collegedekhocdn.com/media/img/institute/crawled_images/None/1482139716air3.jpg?tr=h-390,w-262" alt="">
+                <div class="layer">
+                    <h3>Chandigarh University</h3>
+                </div>
+            </div>
+            <div class="campus-col">
+                <img src="https://i.pinimg.com/564x/46/cb/f8/46cbf824274f784c8c7d88e14b22132b.jpg" alt="">
+                <div class="layer">
+                    <h3>CGC Jhanjeri</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities -->
+    <section class="facilities">
+        <h1>Our Facilities</h1>
+        <p> aliquam corporis quisquam in nihil eaque fugit reprehenderit quis, dolor sequi? Doloribus voluptatum placeat nulla labore dolorem!</p>
+        <div class="row">
+            <div class="facilities-col">
+                <img src="https://chandigarhmetro.com/wp-content/uploads/2017/03/LIbraries-Chandigarh.jpg" alt="">
+                <h3>Library</h3>
+                <p>Chandigarh University has 13 libraries - one central library and twelve libraries situated in different academic blocks with a rich collection of more than 85,000 books and 850000 of e-books. It has an institutional membership with DELNET and British Council Library.</p>
+            </div>
+            <div class="facilities-col">
+                <img src="https://i.pinimg.com/564x/f6/c7/b3/f6c7b3640147ee58b9466a021ed48c73.jpg" alt="">
+                <h3>Cafeteria</h3>
+                <p>Conveniently located cafes and mini refreshment joints are popular gathering places for students, faculty, and staff to eat, study, or socialize with friends.Restaurants and cafe's operational on campus are Lord's Food Court,Cafe Coffee Day, Baskin &Robbins and Subway.</p>
+            </div>
+            <div class="facilities-col">
+                <img src="https://qph.fs.quoracdn.net/main-qimg-77618c9748c11603313c366bba17d64d" alt="">
+                <h3>Hostel</h3>
+                <p>Chandigarh University campus has separate hostels for boys and girls with an attached mess. All the hostels have basic amenities like water purifiers, common room, gym, salon, recreation room, mess, TV, laundry services, security, and surveillance system.</p>
+            </div>
+        </div>  
+    </section>
+
+    <section class="testimonials">
+        <h1>What Our Student Says</h1>
+        <p>It is essential that our students are happy with all aspects of their stay. Review of our University help you make an informed study choice based on your <br>personal needs. An easier way of shortlisting your preferred universities</p>
+        <div class="row">
+            <div class="testimonials-col">
+                <img src="https://goop-img.com/wp-content/uploads/2020/06/Mask-Group-2.png" alt="">
+                <div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus suscipit a quis molestiae ratione necessitatibus, reiciendis officiis et dolore tempora dolor officia consectetur similique dolorem. Illo porro est iusto officia.</p>
+                    <h3>Champa</h3>
+                    <i class="fas fa-star st"></i>
+                    <i class="fas fa-star st"></i>
+                    <i class="fas fa-star st"></i>
+                    <i class="fas fa-star st"></i>
+                    <i class="far fa-star st"></i>
+                </div>
+            </div>
+            <div class="testimonials-col">
+                <img src="http://faceresearch.org/uploads/base/white_male" alt="">
+                <div>
+                    <p>Awesome University for studing. It is excellent to explore and enjoy college life but is not recommended if you just want to <br>study. I am studing in this university from last 6 years and just 2 backs are left</p> 
+                    <h3>Ramesh</h3>
+                    <i class="fas fa-star st"></i>
+                    <i class="fas fa-star st"></i>
+                    <i class="fas fa-star st"></i>
+                    <i class="fas fa-star st"></i>
+                    <i class="fa fa-star-half-alt st"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="cta">
+        <h1>Enroll For Our Various Online Courses <br>Anywhere From The World</h1>
+        <a href="" class="hero-btn">CONTACT US</a>
+    </section>
+
+    <section>
+        <footer>
+            <div class="container">
+                <div class="rows">
+                    <div class="footer-col">
+                        <h4>Apply Here</h4>
+                        <ul>
+                            <li><a href="">Admissions</a></li>
+                            <li><a href="">Online Admisions</a></li>
+                            <li><a href="">Scholarship</a></li>
+                            <li><a href="">How to Apply?</a></li>
+                            <li><a href="">Admission Office</a></li>
+                            <li><a href="">Student Feedback</a></li>
+                            <li><a href="">Education Loan</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Learn Here</h4>
+                        <ul>
+                            <li><a href="">FAQ</a></li>
+                            <li><a href="">IQAC</a></li>
+                            <li><a href="">Other Committees</a></li>
+                            <li><a href="">Pay Fee Online</a></li>
+                            <li><a href="">Placements</a></li>
+                            <li><a href="">Teaching Practices</a></li>
+                            <li><a href="">Our Institute</a></li>
+                            <li><a href="">CU Edge</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Live Here</h4>
+                        <ul>
+                            <li><a href="">Hostels</a></li>
+                            <li><a href="">Transport</a></li>
+                            <li><a href="">Sports</a></li>
+                            <li><a href="">Cultural Activities</a></li>
+                            <li><a href="">Students Welfare</a></li>
+                            <li><a href="">Libraries</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Others</h4>
+                        <ul>
+                            <li><a href="">Course Fee Details</a></li>
+                            <li><a href="">Grievance Redressal Cell</a></li>
+                            <li><a href="">Procedures And Policies</a></li>
+                            <li><a href="">PPCB Report</a></li>
+                        </ul>
+                        <br><br>
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a>
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+    <script>
+        const check=document.getElementById("catch-me");
+        const show=()=>{
+            check.style.right="0";
+        }
+        const hide=()=>{
+            check.style.right="-200px";
+        }
+    </script>
+</body>
+</html>
