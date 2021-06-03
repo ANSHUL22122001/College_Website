@@ -97,9 +97,6 @@
             .text-box h1{
                 font-size: 20px;
             }
-            nav .nav-links ul li{
-                display: block;
-            }
             nav .nav-links{
                 position: absolute;
                 background: #f44336;
@@ -110,6 +107,13 @@
                 text-align: left;
                 z-index: 1;
                 transition:1s;
+                display: none;
+            }
+            nav .nav-links ul{
+                padding: 30px;
+            }
+            nav .nav-links ul li{
+                display: block;
             }
             nav .fa{
                 display: block;
@@ -117,9 +121,6 @@
                 margin: 10px;
                 font-size: 22px;
                 cursor: pointer;
-            }
-            .nav-links ul{
-                padding: 30px;
             }
         }
 
@@ -318,6 +319,7 @@
             max-width: 1170px;
             margin: auto;
             padding: 50px 0px;
+            margin-left: 30px;
         }
         footer .container .rows{
             display: flex;
@@ -387,7 +389,7 @@
                 margin-bottom: 30px;
             }
         }
-        @media(max-width:767px){
+        @media(max-width:567px){
             footer .container .rows .footer-col{
                 width: 100%;
             }
@@ -599,10 +601,16 @@
     <script>
         const check=document.getElementById("catch-me");
         const show=()=>{
+            check.style.display="block"; 
             check.style.right="0";
+            
         }
         const hide=()=>{
             check.style.right="-200px";
+            setTimeout(()=>{
+                check.style.display="none";
+            }, 1000);
+            
         }
     </script>
 </body>
