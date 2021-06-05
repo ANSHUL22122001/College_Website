@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <style>
         /* section1 */
@@ -28,7 +29,7 @@
             align-items: center;
         }
         nav img{
-            width: 150px;
+            width: 300px;
         }
         nav .nav-links{
             flex: 1;
@@ -93,7 +94,10 @@
         nav .fa{
             display: none;
         }
-        @media(max-width:700px){
+        @media(max-width:800px){
+            nav img{
+                width: 200px;
+            }
             .text-box h1{
                 font-size: 20px;
             }
@@ -601,11 +605,18 @@
     <script>
         const check=document.getElementById("catch-me");
         const show=()=>{
-            check.style.display="block"; 
-            check.style.right="0";
+            // $('document').ready(function(){
+                $('#catch-me').css({
+                    "display":"block",
+                    "right":"0"
+                });
+            // });
+            
             
         }
+        
         const hide=()=>{
+            
             check.style.right="-200px";
             setTimeout(()=>{
                 check.style.display="none";
